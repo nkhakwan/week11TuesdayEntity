@@ -57,6 +57,7 @@ namespace ToDoList.Tests
       List<Item> newList = new List<Item> { };
       //Act
       List<Item> result = Item.GetAll();
+
       //Assert
       CollectionAssert.AreEqual(newList, result);
     }
@@ -73,7 +74,6 @@ namespace ToDoList.Tests
 
       //Act 
       List<Item> result = Item.GetAll();
-
       //assert
       CollectionAssert.AreEqual(newList, result);
     }
