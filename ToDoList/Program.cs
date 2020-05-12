@@ -21,15 +21,22 @@ namespace ToDoList
       }
       else if (response == "v")
       {
-
         List<Item> tempItem = Item.GetAll();
-        foreach (Item item in tempItem)
+        if (tempItem.Count == 0)
         {
-          Console.WriteLine(item.Description);
+          Console.WriteLine("Your list is empty ya dingus!");
+          response = "a";
         }
+        else
+        {
+          foreach (Item item in tempItem)
+          {
+            Console.WriteLine(item.Description);
+          }
 
-        Console.Write("[V]iew, [A]dd, or [Q]uit:");
-        response = Console.ReadLine().ToLower();
+          Console.Write("[V]iew, [A]dd, or [Q]uit:");
+          response = Console.ReadLine().ToLower();
+        }
       }
 
       return response;
@@ -38,7 +45,6 @@ namespace ToDoList
     public static void Main()
     {
       Console.WriteLine("Hi, welcome to your to do list");
-
 
       Console.Write(@"Would you like to [V]iew or [A]dd to your list? -- ");
 
@@ -57,10 +63,7 @@ namespace ToDoList
       {
         response = UserInput(response);
       }
-
       Console.WriteLine("Bye!");
-
-
     }
   }
 }
