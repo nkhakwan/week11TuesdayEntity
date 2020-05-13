@@ -12,8 +12,20 @@ namespace ToDoList
       {
         Console.Write("Enter your item:");
         string res = Console.ReadLine();
+        int i;
+        Console.Write("Priority Level:");
+        bool resp = int.TryParse(Console.ReadLine(), out i);
 
-        Item thisItem = new Item(res);
+        if (resp)
+        {
+          Item thisItem = new Item(res, i);
+        }
+        else
+        {
+          Item thisItem = new Item(res);
+        }
+
+
 
         Console.Write("[V]iew, [A]dd, or [Q]uit:");
         response = Console.ReadLine().ToLower();
