@@ -6,7 +6,7 @@
 <p>There are no items in the list.</p>
 }
 <ul>
-  @foreach (Item item in Model)
+  @foreach (Item item in Model)//list<Items>{{}}
   {
   <li><a href='/items/@item.Id'>@item.Description @item.Id</a></li>
   }
