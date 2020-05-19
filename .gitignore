@@ -1,2 +1,7 @@
 obj/
 bin/
+*/bin/
+*/*/bin/
+*/obj/
+*/*/obj/
+.vscode
