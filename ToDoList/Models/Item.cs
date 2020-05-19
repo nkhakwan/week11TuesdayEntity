@@ -6,7 +6,19 @@ namespace ToDoList.Models
   {
     public string Description { get; set; }
     public int Priority { get; set; }
+    public int Id { get; }
     private static List<Item> _instances = new List<Item> { };
+    public Item(string des)
+    {
+      Description = des;
+      _instances.Add(this);
+      Id = _instances.Count;
+    }
+    public Item(string des, int priority)
+      : this(des)
+    {
+      Priority = priority;
+    }
 
     public static List<Item> GetAll()
     {
@@ -17,16 +29,9 @@ namespace ToDoList.Models
     {
       _instances.Clear();
     }
-
-    public Item(string des)
+    public static Item Find(int searchId)
     {
-      Description = des;
-      _instances.Add(this);
-    }
-    public Item(string des, int priority)
-      : this(des)
-    {
-      Priority = priority;
+      return _instances[searchId - 1];
     }
   }
 }
