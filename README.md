@@ -2,7 +2,7 @@
 
 #### _Epicodus Project May 12, 2020_
 
-#### By _**Jessica Hvozdovich, DJ Zevenbergen, and Julia Seidman**_
+#### By _**DJ Zevenbergen & KhanSahab**_
 
 ## Description
 
@@ -41,4 +41,4 @@ _Have a bug or an issue with this application? [Open a new issue](https://github
 
 This software is licensed under the MIT license.
 
-Copyright (c) 2020 **_Jessica Hvozdovich, DJ Zevenbergen, and Julia Seidman_**
+Copyright (c) 2020 **_DJ Zevenbergen & KhanSahab_**
