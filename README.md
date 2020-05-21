@@ -1,6 +1,5 @@
 # _To Do List_
 
-#### _Epicodus Project May 12, 2020_
 
 #### By _** KhanSahab**_
 
