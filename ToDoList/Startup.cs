@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
 
 namespace ToDoList
 {
@@ -16,7 +17,7 @@ namespace ToDoList
       Configuration = builder.Build();
     }
 
-    public IConfigurationRoot Configuration { get; }
+    public IConfigurationRoot Configuration { get; set; }
 
     public void ConfigureServices(IServiceCollection services)
     {
@@ -40,9 +41,23 @@ namespace ToDoList
       });
 
     }
+    public Startup(IHostingEnvironment env)
+    {
+        var builder = new ConfigurationBuilder()
+            .SetBasePath(env.ContentRootPath)
+            .AddJsonFile("appsettings.json"); //this line replaces .AddEnvironmentVariables();
+        Configuration = builder.Build();
+    }
+
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddMvc();
+
+        //New code
+        services.AddEntityFrameworkMySql()
+            .AddDbContext<ToDoListContext>(options => options
+            .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
+    }
   }
-  public static class DBConfiguration
-  {
-    public static string ConnectionString = "server=localhost;user id=root;password=epicodus;port=3306;database=to_do_list;";
-  }
+  
 }
