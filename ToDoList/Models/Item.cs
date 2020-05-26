@@ -5,7 +5,6 @@ namespace ToDoList.Models
   public class Item
   {
     public string Description { get; set; }
-    public int Id { get; }
     public int Id { get; set; }
     
     public Item(string description)
@@ -18,11 +17,7 @@ namespace ToDoList.Models
         Description = description;
         Id = id;
     }
-    /*public Item(string des, int priority)
-      : this(des)
-    {
-      Priority = priority;
-    }*/
+    
 
     
 
@@ -77,12 +72,7 @@ namespace ToDoList.Models
       conn.Dispose();
      }
     }
-    public static Item Find(int searchId)
-    {
-      // Temporarily returning placeholder item to get beyond compiler errors until we refactor to work with database.
-      Item placeholderItem = new Item("placeholder item");
-      return placeholderItem;
-    }
+    
 
     public static Item Find(int id)
     {
